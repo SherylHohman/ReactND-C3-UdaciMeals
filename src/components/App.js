@@ -41,6 +41,8 @@ class App extends Component {
       <div>
         <input
           type='text'
+          {/* this looks like an UNcontrolled input form to me..*/}
+          {/*  https://reactjs.org/docs/uncontrolled-components.html*/}
           ref={(input) => this.input = input}
           placeholder="Monday's Breakfast"
         />
