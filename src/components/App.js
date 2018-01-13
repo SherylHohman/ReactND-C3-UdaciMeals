@@ -10,7 +10,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome {this.props.name} !</h1>
+          <h1 className="App-title">Welcome !</h1>
         </header>
         <p className="App-intro">Here is your meal: {`${this.props.calendar.saturday.breakfast}`}</p>
       </div>
@@ -19,10 +19,7 @@ class App extends Component {
 }
 
 function mapStateToProps (calendar) {
-  return ({
-    name: 'Sheryl',
-    calendar
-  });
+  return calendar;
 }
 
 export default connect(mapStateToProps)(App);
