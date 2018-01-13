@@ -5,16 +5,6 @@ import logo from '../logo.svg';
 import '../App.css';
 
 class App extends Component {
-  // may not have the syntax exactly right here ..
-  // this is available simply because we `connect`ed App.
-  // this could be added to an onClick handler, for instance
-
-  doThing = () => {
-    this.props.selectRecipe();
-  };
-  doAnotherThing = () => {
-    this.props.remove();
-  };
 
   render() {
     console.log('Props:', this.props);
