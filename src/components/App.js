@@ -18,7 +18,7 @@ class App extends Component {
   }
 }
 
-function mapStateToProps (calendar) {
+function mapStoreToProps (calendar) {
   const daysOfWeekOrdered=['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
   return {
     calendar: daysOfWeekOrdered.map((day) => ({
@@ -66,4 +66,4 @@ function mapStateToProps (calendar) {
 
 };
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStoreToProps)(App);
