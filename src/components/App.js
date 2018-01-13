@@ -9,22 +9,12 @@ class App extends Component {
   // this is available simply because we `connect`ed App.
   // this could be added to an onClick handler, for instance
 
-  /*
-  selectRecipeMethod1 = (data) => {
-    this.props.dispatch(addRecipe(data));
+  doThing = () => {
+    this.props.selectRecipe();
   };
-  */
-    selectRecipeMethod2 = (data) => {
-      this.props.selectRecipe(data);
-    };
-/*
-  removeRecipeMethod1 = (data) => {
-    this.props.dispatch(removeFromCalendar(data));
+  doAnotherThing = () => {
+    this.props.remove();
   };
-*/
-    removeRecipeMethod2 = (data) => {
-      this.props.remove(data);
-    };
 
   render() {
     console.log('Props:', this.props);
@@ -63,6 +53,12 @@ function mapStoreToProps (calendar) {
       }, {})
     })),
   }
+};
+
+export default connect(mapStoreToProps, mapDispatchToProps)(App);
+
+
+// NOTES:  How code to Reformat Data works:
       // A)
       //  meal is the Object.key that we're reducing thru,
       //  meals is accumulator- grouping the 3 meals together into an
@@ -92,7 +88,3 @@ function mapStoreToProps (calendar) {
   //  and the `day` is pulled from daysOfWeek AND calendar object.
   //  reason for this is that an array needs to be ordered. daysOfWeek
   //  provides this ordering. If it was simply pulled from the calendar object (using Object.keys, as we do for the meals), the days of the week would have no gauranteed order, which is inappropriate for a calendar!  We need the days to be consistently ordered.
-
-};
-
-export default connect(mapStoreToProps, mapDispatchToProps)(App);
