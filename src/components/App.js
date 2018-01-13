@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { addRecipe, removeFromCalendar} from '../actions'
 import logo from '../logo.svg';
 import '../App.css';
 
 class App extends Component {
+  // may not have the syntax exactly right here ..
+  // this is available simply because we `connect`ed App.
+  // this could be added to an onClick handler, for instance
+
+  selectRecipeMethod1 = (data) => {
+    this.props.dispatch(addRecipe(data));
+  };
+  removeRecipeMethod1 = (data) => {
+    this.props.dispatch(removeFromCalendar(data));
+  };
+
   render() {
     console.log('Props:', this.props);
     return (
