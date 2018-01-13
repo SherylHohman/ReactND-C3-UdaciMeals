@@ -12,14 +12,58 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome !</h1>
         </header>
-        <p className="App-intro">Here is your meal: {`${this.props.calendar.saturday.breakfast}`}</p>
+        <p className="App-intro">Here is your Sunday Breakfast: {`${this.props.calendar[0].breakfast}`}</p>
       </div>
     );
   }
 }
 
 function mapStateToProps (calendar) {
-  return calendar;
-}
+  const daysOfWeekOrdered=['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+  return {
+    calendar: daysOfWeekOrdered.map((day) => ({
+      day,
+      // A)
+      meals: Object.keys(calendar[day]).reduce((meals, meal) => {
+        // B)
+        meals[meal] = calendar[day][meal]
+          ? calendar[day][meal]
+          : null
+        return meals
+        // C)
+      }, {})
+    })),
+  }
+      // A)
+      //  meal is the Object.key that we're reducing thru,
+      //  meals is accumulator- grouping the 3 meals together into an
+      //    object of meals. keys/meal will be: breakfast, lunch, dinner
+      //  why we need to explicitely set to null, when initializer of
+      //    calendar obj in store (src/reducers/index.js calendar
+      //    initialCalendarState) already has them initialized at
+      //    `null`, I'm not sure..
+
+        // B)
+        //  not using dot notation because named properties are a string value.
+        //  The variable (meal) is the string value we're using as the property name!
+
+    // C)
+  // returns an array of objects, where each element of the array is an obj of form:
+  //  calendar[0]: {
+  //    day: sunday,
+  //    meal: {
+  //      breakfast: null,
+  //      lunch: null,
+  //      dinner: null
+  //    }
+  //  }
+
+  //  `breakfast`, `lunch`, `dinner` were pulled from `Object.keys` off
+  //    the store's calendar object.
+  //  and the `day` is pulled from daysOfWeek AND calendar object.
+  //  reason for this is that an array needs to be ordered. daysOfWeek
+  //  provides this ordering. If it was simply pulled from the calendar object (using Object.keys, as we do for the meals), the days of the week would have no gauranteed order, which is inappropriate for a calendar!  We need the days to be consistently ordered.
+
+};
 
 export default connect(mapStateToProps)(App);
