@@ -9,12 +9,22 @@ class App extends Component {
   // this is available simply because we `connect`ed App.
   // this could be added to an onClick handler, for instance
 
+  /*
   selectRecipeMethod1 = (data) => {
     this.props.dispatch(addRecipe(data));
   };
+  */
+    selectRecipeMethod2 = (data) => {
+      this.props.selectRecipe(data);
+    };
+/*
   removeRecipeMethod1 = (data) => {
     this.props.dispatch(removeFromCalendar(data));
   };
+*/
+    removeRecipeMethod2 = (data) => {
+      this.props.remove(data);
+    };
 
   render() {
     console.log('Props:', this.props);
@@ -28,6 +38,13 @@ class App extends Component {
       </div>
     );
   }
+}
+
+function mapDispatchToProps(dispatch){
+  return ({
+    selectRecipe: (data) => dispatch(addRecipe(data)),
+    remove: (data) => dispatch(removeFromCalendar(data)),
+  })
 }
 
 function mapStoreToProps (calendar) {
@@ -78,4 +95,4 @@ function mapStoreToProps (calendar) {
 
 };
 
-export default connect(mapStoreToProps)(App);
+export default connect(mapStoreToProps, mapDispatchToProps)(App);
