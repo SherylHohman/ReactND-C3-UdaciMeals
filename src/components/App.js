@@ -12,16 +12,17 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome {this.props.name} !</h1>
         </header>
-        <p className="App-intro"></p>
+        <p className="App-intro">Here is your meal: {`${this.props.calendar.saturday.breakfast}`}</p>
       </div>
     );
   }
 }
 
-function mapStateToProps () {
-  return {
-    name: 'Sheryl'
-  }
+function mapStateToProps (calendar) {
+  return ({
+    name: 'Sheryl',
+    calendar
+  });
 }
 
 export default connect(mapStateToProps)(App);
