@@ -10,7 +10,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React-Redux</h1>
+          <h1 className="App-title">Welcome {this.props.name} !</h1>
         </header>
         <p className="App-intro"></p>
       </div>
@@ -18,4 +18,10 @@ class App extends Component {
   }
 }
 
-export default connect()(App);
+function mapStateToProps () {
+  return {
+    name: 'Sheryl'
+  }
+}
+
+export default connect(mapStateToProps)(App);
