@@ -38,8 +38,12 @@ class App extends Component {
                 {mealOrder.map((mealType) => (
                   <li key={mealType} className="meal">
                     {meals[mealType]
-                      ? meals[mealType]
-                      : <CalendarIcon size={30} className="icon-btn"/>
+                      ? <div className="food-item">
+                          {meals[mealType]}
+                        </div>
+                      : <button className="icon-btn">
+                          <CalendarIcon size={30} />
+                        </button>
                     }
                   </li>
                 ))}
