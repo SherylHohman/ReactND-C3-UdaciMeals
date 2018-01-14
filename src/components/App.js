@@ -32,14 +32,14 @@ class App extends Component {
             ))}
           </div>
 
-          <div className="">
+          <div className="icon-grid">
             {calendar.map(({ day, meals }) => (
               <ul key={day}>
                 {mealOrder.map((mealType) => (
-                  <li key={mealType}>
+                  <li key={mealType} className="meal">
                     {meals[mealType]
                       ? meals[mealType]
-                      : <CalendarIcon size={30} />
+                      : <CalendarIcon size={30} className="icon-btn"/>
                     }
                   </li>
                 ))}
