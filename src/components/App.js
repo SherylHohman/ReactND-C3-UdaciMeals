@@ -8,14 +8,22 @@ class App extends Component {
 
   render() {
     const mealOrder = ['breakfast', 'lunch', 'dinner'];
+    const { calendar, remove } = this.props;
 
-    console.log('Props:', this.props);
     return (
       <div className="container">
         <ul className="meal-types">
           {mealOrder.map((mealType) => (
             <li key={mealType} className='subheader'>
               {capitalize(mealType)}
+            </li>
+          ))}
+        </ul>
+
+        <ul className="days">
+          {calendar.map((calendarItem) => (
+            <li key={calendarItem.day} className="subheader">
+              {capitalize(calendarItem.day)}
             </li>
           ))}
         </ul>
