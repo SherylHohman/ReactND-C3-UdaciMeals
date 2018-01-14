@@ -19,3 +19,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# sh added 180113 - Udacity had us put our EDAMAM.com keys in `.env`
+# on the otherhand, I'm adding .env_TEMPLATE that shows what constants the app expects.
+.env
