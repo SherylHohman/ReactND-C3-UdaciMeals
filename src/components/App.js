@@ -40,6 +40,9 @@ class App extends Component {
                     {meals[mealType]
                       ? <div className="food-item">
                           {meals[mealType]}
+                          <button onClick={() => remove({meals[mealType], day})}>
+                            Clear
+                          </button>
                         </div>
                       : <button className="icon-btn">
                           <CalendarIcon size={30} />
