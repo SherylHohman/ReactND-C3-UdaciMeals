@@ -22,6 +22,7 @@ class App extends Component {
         </ul>
 
         <div className="calendar">
+
           <div className="days">
             {calendar.map(({ day }) => (
               <h3 key={day} className="subheader">
@@ -29,6 +30,13 @@ class App extends Component {
               </h3>
             ))}
           </div>
+
+          <div className="">
+            {calendar.map(({ day, meals }) => (
+              <ul key={day}>{day}'s meals</ul>
+            ))}
+          </div>
+
         </div>
 
       </div>
