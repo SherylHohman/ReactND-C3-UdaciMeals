@@ -4,7 +4,13 @@ import {
   REMOVE_FROM_CALENDAR
 } from '../actions';
 
-function food(state = {}, action) {
+const sampleMenu = {
+  "pizza": "crust, cheese, toppings",
+  "movie popcorn": "popcorn, butter, oil, salt",
+  "mimosa": "OJ, alcohol"
+}
+
+function food(state = sampleMenu, action) {
   switch (action.type){
     case ADD_RECIPE:
       const { recipe } = action;
@@ -20,9 +26,9 @@ function food(state = {}, action) {
 
 const initialCalendarState = {
     sunday: {
-      breakfast: null,
-      lunch: null,
-      dinner: null,
+      breakfast: 'pizza',
+      lunch: 'mimosa',
+      dinner: 'movie popcorn',
     },
     monday: {
       breakfast: null,
