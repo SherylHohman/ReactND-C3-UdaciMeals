@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addRecipe, removeFromCalendar} from '../actions'
+import { addRecipe, removeFromCalendar} from '../actions';
 import CalendarIcon from 'react-icons/lib/fa/calendar-plus-o';
 import { capitalize } from '../utils/helpers';
-import '../App.css';
 
 class App extends Component {
 
