@@ -39,8 +39,8 @@ class App extends Component {
                   <li key={mealType} className="meal">
                     {meals[mealType]
                       ? <div className="food-item">
-                          {meals[mealType]}
-                          <button onClick={() => remove({meals[mealType], day})}>
+                          <img src={meals[mealType].image} alt={meals[mealType].label}/>
+                          <button onClick={() => remove({mealType, day})}>
                             Clear
                           </button>
                         </div>
