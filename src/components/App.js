@@ -7,10 +7,18 @@ import { capitalize } from '../utils/helpers';
 class App extends Component {
 
   render() {
+    const mealOrder = ['breakfast', 'lunch', 'dinner'];
+
     console.log('Props:', this.props);
     return (
       <div className="container">
-        <h3>Hello UdaciMeals !</h3>
+        <ul className="meal-types">
+          {mealOrder.map((mealType) => (
+            <li key={mealType} className='subheader'>
+              {capitalize(mealType)}
+            </li>
+          ))}
+        </ul>
       </div>
     );
   }
