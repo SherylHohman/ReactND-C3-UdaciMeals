@@ -27,9 +27,10 @@ function mapDispatchToProps(dispatch){
   })
 }
 
-function mapStoreToProps (calendar) {
+function mapStoreToProps ( { calendar, food }) {
   const daysOfWeekOrdered=['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
   return {
+    food,
     calendar: daysOfWeekOrdered.map((day) => ({
       day,
       // A)
