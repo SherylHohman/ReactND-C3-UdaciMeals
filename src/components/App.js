@@ -21,9 +21,9 @@ class App extends Component {
         </ul>
 
         <ul className="days">
-          {calendar.map((calendarItem) => (
-            <li key={calendarItem.day} className="subheader">
-              {capitalize(calendarItem.day)}
+          {calendar.map(({ day }) => (
+            <li key={day} className="subheader">
+              {capitalize(day)}
             </li>
           ))}
         </ul>
