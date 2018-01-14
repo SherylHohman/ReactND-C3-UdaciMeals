@@ -10,14 +10,8 @@ function food(state = {}, action) {
       const { recipe } = action;
       return ({
         ...state,
-
-        [recipe.label]: action.recipe,  // ..so I can mentally "see" what I'm accessing
+        [recipe.label]: action.recipe,  // ..so I can mentally "see" what I'm accessing -- just verifly this gives the same result, then delete and replace with below.
         // [recipe.label]: recipe,     // Udacidy codes it this way - it's cleaner!
-
-        // recipe.label is "pizza" - string typed in by user to label the recipe.  Hence it *must* be destructured from action as above.
-        //  It's not a property name in itself, it's a variable holding
-        //  the string name of the property to be added.
-
       });
     default:
       return state;
@@ -92,3 +86,10 @@ export default combineReducers({
   food,
   calendar,
 })
+
+
+// Notes:
+        // recipe.label is "pizza" - string typed in by user to label the recipe.  Hence it *must* be destructured from action as above.
+        //  It's not a property name in itself, it's a variable holding
+        //  the string name of the property to be added.
+

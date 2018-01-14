@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addRecipe, removeFromCalendar} from '../actions'
-import logo from '../logo.svg';
 import '../App.css';
 
 class App extends Component {
@@ -9,12 +8,8 @@ class App extends Component {
   render() {
     console.log('Props:', this.props);
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome !</h1>
-        </header>
-        <p className="App-intro">Here is your Sunday Breakfast: {`${this.props.calendar[0].breakfast}`}</p>
+      <div className="container">
+        <h3>Hello UdaciMeals !</h3>
       </div>
     );
   }
@@ -33,14 +28,11 @@ function mapStoreToProps ( { calendar, food }) {
     food,
     calendar: daysOfWeekOrdered.map((day) => ({
       day,
-      // A)
       meals: Object.keys(calendar[day]).reduce((meals, meal) => {
-        // B)
         meals[meal] = calendar[day][meal]
           ? food[calendar[day][meal]]
           : null
         return meals
-        // C)
       }, {})
     })),
   }
