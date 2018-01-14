@@ -37,7 +37,7 @@ function mapStoreToProps ( { calendar, food }) {
       meals: Object.keys(calendar[day]).reduce((meals, meal) => {
         // B)
         meals[meal] = calendar[day][meal]
-          ? calendar[day][meal]
+          ? food[calendar[day][meal]]
           : null
         return meals
         // C)
