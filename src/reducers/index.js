@@ -16,8 +16,7 @@ function food(state = sampleMenu, action) {
       const { recipe } = action;
       return ({
         ...state,
-        [recipe.label]: action.recipe,  // ..so I can mentally "see" what I'm accessing -- just verifly this gives the same result, then delete and replace with below.
-        // [recipe.label]: recipe,     // Udacidy codes it this way - it's cleaner!
+        [recipe.label]: recipe
       });
     default:
       return state;
