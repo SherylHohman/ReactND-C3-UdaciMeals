@@ -12,6 +12,7 @@ class App extends Component {
 
     return (
       <div className="container">
+
         <ul className="meal-types">
           {mealOrder.map((mealType) => (
             <li key={mealType} className='subheader'>
@@ -20,13 +21,16 @@ class App extends Component {
           ))}
         </ul>
 
-        <ul className="days">
-          {calendar.map(({ day }) => (
-            <li key={day} className="subheader">
-              {capitalize(day)}
-            </li>
-          ))}
-        </ul>
+        <div className="calendar">
+          <div className="days">
+            {calendar.map(({ day }) => (
+              <h3 key={day} className="subheader">
+                {capitalize(day)}
+              </h3>
+            ))}
+          </div>
+        </div>
+
       </div>
     );
   }
