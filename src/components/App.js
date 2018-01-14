@@ -9,6 +9,7 @@ class App extends Component {
   render() {
     const mealOrder = ['breakfast', 'lunch', 'dinner'];
     const { calendar, remove } = this.props;
+    console.log(this.props);
 
     return (
       <div className="container">
@@ -33,7 +34,13 @@ class App extends Component {
 
           <div className="">
             {calendar.map(({ day, meals }) => (
-              <ul key={day}>{day}'s meals</ul>
+              <ul key={day}>
+                {mealOrder.map((mealType) => (
+                  <li key={mealType}>
+                    {meals[mealType]}
+                  </li>
+                ))}
+              </ul>
             ))}
           </div>
 
