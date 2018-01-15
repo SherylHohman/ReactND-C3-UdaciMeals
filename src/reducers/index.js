@@ -10,7 +10,15 @@ const sampleMenu = {
   "mimosa": "OJ, alcohol"
 }
 
-function food(state = sampleMenu, action) {
+const sampleCalendar = {
+  sunday: {
+    breakfast: 'pizza',
+    lunch: 'mimosa',
+    dinner: 'movie popcorn',
+  },
+}
+
+function food(state = {}, action) {
   switch (action.type){
     case ADD_RECIPE:
       const { recipe } = action;
@@ -25,9 +33,9 @@ function food(state = sampleMenu, action) {
 
 const initialCalendarState = {
     sunday: {
-      breakfast: 'pizza',
-      lunch: 'mimosa',
-      dinner: 'movie popcorn',
+      breakfast: null,
+      lunch: null,
+      dinner: null
     },
     monday: {
       breakfast: null,
