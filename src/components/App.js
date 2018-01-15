@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Modal from 'react-modal';
 import FoodList from './FoodList';
+import ShoppingList from './ShoppingList';
 import { addRecipe, removeFromCalendar, selectRecipe} from '../actions';
 import { fetchRecipes } from '../utils/api';
 import { capitalize } from '../utils/helpers';
@@ -16,6 +17,8 @@ class App extends Component {
     meal: null,
     day: null,
     food: null,
+    loadingFood: false,
+    ingredientsModalOpen: false,
     loadingFood: false,
   }
 
@@ -51,14 +54,42 @@ class App extends Component {
       })))
   }
 
+  openIngredientsModal = () => this.setState(() => (
+    { ingredientsModalOpen: true })
+  )
+  closeIngredientsModal = () => this.setState(() => (
+    { ingredientsModalOpen: false })
+  )
+  generateShoppingList = () => {
+    return this.props.calendar.reduce((result, { meals }) => {
+      const { breakfast, lunch, dinner } = meals
+
+      breakfast && result.push(breakfast)
+      lunch && result.push(lunch)
+      dinner && result.push(dinner)
+
+      return result
+    }, [])
+    .reduce((ingredients, { ingredientLines }) => ingredients.concat(ingredientLines), [])
+  }
+
   render() {
     const mealOrder = ['breakfast', 'lunch', 'dinner'];
-    const { foodModalOpen, loadingFood, food } = this.state
-    const { calendar, remove, selectRecipe }   = this.props;
+    const { foodModalOpen, loadingFood, food, ingredientsModalOpen } = this.state
+    const { calendar, remove, selectRecipe } = this.props;
     console.log(this.props, this.state);
 
     return (
       <div className="container">
+
+        <div className='nav'>
+          <h1 className='header'>UdaciMeals</h1>
+          <button
+            className='shopping-list'
+            onClick={this.openIngredientsModal}>
+              Shopping List
+          </button>
+        </div>
 
         <ul className="meal-types">
           {mealOrder.map((mealType) => (
@@ -145,6 +176,15 @@ class App extends Component {
           </div>
         </Modal>
 
+        <Modal
+          className='modal'
+          overlayClassName='overlay'
+          isOpen={ingredientsModalOpen}
+          onRequestClose={this.closeIngredientsModal}
+          contentLabel='Modal'
+        >
+          {ingredientsModalOpen && <ShoppingList list={this.generateShoppingList()}/>}
+        </Modal>
 
 
       </div>
