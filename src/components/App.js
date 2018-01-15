@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Modal from 'react-modal';
 import FoodList from './FoodList';
 import ShoppingList from './ShoppingList';
-import { addRecipe, removeFromCalendar, selectRecipe} from '../actions';
+import { addRecipe, removeFromCalendar} from '../actions';
 import { fetchRecipes } from '../utils/api';
 import { capitalize } from '../utils/helpers';
 import CalendarIcon   from 'react-icons/lib/fa/calendar-plus-o';
@@ -19,7 +19,6 @@ class App extends Component {
     food: null,
     loadingFood: false,
     ingredientsModalOpen: false,
-    loadingFood: false,
   }
 
   openFoodModal = ({ meal, day }) => {
@@ -82,10 +81,10 @@ class App extends Component {
     return (
       <div className="container">
 
-        <div className='nav'>
-          <h1 className='header'>UdaciMeals</h1>
+        <div className="nav">
+          <h1 className="header">UdaciMeals</h1>
           <button
-            className='shopping-list'
+            className="shopping-list"
             onClick={this.openIngredientsModal}>
               Shopping List
           </button>
@@ -93,7 +92,7 @@ class App extends Component {
 
         <ul className="meal-types">
           {mealOrder.map((mealType) => (
-            <li key={mealType} className='subheader'>
+            <li key={mealType} className="subheader">
               {capitalize(mealType)}
             </li>
           ))}
@@ -122,7 +121,7 @@ class App extends Component {
                           </button>
                         </div>
                       : <button
-                          className='icon-btn'
+                          className="icon-btn"
                           onClick={() => this.openFoodModal({meal, day})}
                           >
                           <CalendarIcon size={30} />
@@ -138,28 +137,28 @@ class App extends Component {
 
 
         <Modal
-          className='modal'
-          overlayClassName='overlay'
+          className="modal"
+          overlayClassName="overlay"
           isOpen={foodModalOpen}
           onRequestClose={this.closeFoodModal}
-          contentLabel='Modal'
+          contentLabel="Modal"
         >
           <div>
             {loadingFood === true
-              ? <Loading delay={200} type='spin' color='#222' className='loading' />
-              : <div className='search-container'>
-                  <h3 className='subheader'>
+              ? <Loading delay={200} type="spin" color="#222" className="loading" />
+              : <div className="search-container">
+                  <h3 className="subheader">
                     Find a meal for {capitalize(this.state.day)} {this.state.meal}.
                   </h3>
-                  <div className='search'>
+                  <div className="search">
                     <input
-                      className='food-input'
-                      type='text'
-                      placeholder='Search Foods'
+                      className="food-input"
+                      type="text"
+                      placeholder="Search Foods"
                       ref={(input) => this.input = input}
                     />
                     <button
-                      className='icon-btn'
+                      className="icon-btn"
                       onClick={this.searchFood}>
                         <ArrowRightIcon size={30}/>
                     </button>
@@ -177,15 +176,14 @@ class App extends Component {
         </Modal>
 
         <Modal
-          className='modal'
-          overlayClassName='overlay'
+          className="modal"
+          overlayClassName="overlay"
           isOpen={ingredientsModalOpen}
           onRequestClose={this.closeIngredientsModal}
-          contentLabel='Modal'
+          contentLabel="Modal"
         >
           {ingredientsModalOpen && <ShoppingList list={this.generateShoppingList()}/>}
         </Modal>
-
 
       </div>
     );

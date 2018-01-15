@@ -12,7 +12,7 @@ export default function FoodList ({ food, onSelect }) {
   }
 
   return (
-    <ul className='food-list'>
+    <ul className="food-list">
       {food.map((item) => (
         <li onClick={() => onSelect(item)} key={item.label}>
           <h3>{trim(item.label)}</h3>
