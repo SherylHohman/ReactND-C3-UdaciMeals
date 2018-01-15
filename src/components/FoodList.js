@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function trim (str) {
   return str.length > 16
