@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Modal from 'react-modal';
 import { addRecipe, removeFromCalendar} from '../actions';
-import CalendarIcon from 'react-icons/lib/fa/calendar-plus-o';
+import { fetchRecipes } from '../utils/api';
 import { capitalize } from '../utils/helpers';
+import CalendarIcon   from 'react-icons/lib/fa/calendar-plus-o';
+import ArrowRightIcon from 'react-icons/lib/fa/arrow-circle-right';
+import Loading from 'react-loading';
 
 class App extends Component {
 
