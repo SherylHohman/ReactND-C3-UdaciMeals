@@ -1,3 +1,61 @@
+
+# UdaciMeals  
+This project was part of a Lesson on React-Redux, as part of [Ucacity's React Nano Degree Program](https://www.udacity.com/course/react-nanodegree--nd019)
+
+## To Run this app, you will need the following:  
+- API Key and API ID from Edamam.com  
+- development server  
+
+### To get your Application ID and Keys from Edamam:  
+- sign up for a free account at [Edamam.com](https://developer.edamam.com/edamam-recipe-api).  
+- request a `Recipe Search API` key.  
+
+### To add your Edamam keys to the app: (this is needed to query their Recipe API)  
+- locate the file `.env_TEMPLATE`  
+- save it as `.env` in the same folder  
+- open it and insert your keys in the appropriate location  
+- resave `.env`  
+- (if your development server was already running, you'll need to restart it)  
+
+#### Your `Application ID` can be found at:  
+[https://developer.edamam.com/admin/applications](https://developer.edamam.com/admin/applications)  
+
+#### Your `Application Keys` can be found at:  
+From link given above, press the `View` button.  
+
+## To start your development server:  
+- download this repo, and from its root directory, run 'yarn install' or 'npm install' from the command line, to download and install the required dependancies.  
+- to start the development server, run 'yarn start' from the command line.
+This will open up your OS's default browser to `localhost: 3000`, where you should see the app running.  
+
+### To stop your development server at any time:  
+- press `Ctrl-C` in your dev server terminal (mac and windows)  
+
+That's it!  
+
+
+## How to use the app:  
+- When the app is first started, a sample of 3 meals will appear on your calendar.  
+- click `clear` to remove a meal.  
+- click the `+` button to add a meal.  
+  -- this will open up a modal dialog where you can type in a food item.  
+  -- press the `->` button to initiate a search for that food on Edamam.com  
+  -- Edamam will provide a maximum of about 10 meals for your food item.  
+  -- click on a food item to select it.  
+  -- modal dialog will close, and your chosen meal will appear on the calendar.  
+- click `ShoppingList` to see a list of ingredients encompassing all meals on your calendar.  
+
+Note: that this app does not SAVE the data to a database or local browser store.  So on page reload, or server restart, all your data will be lost !  
+That's it!  
+
+## Feel free to fork this project, and modify it as you see fit.  
+
+#  
+
+------------------------------  
+# README.MD from the create-react-app (below) 
+------------------------------  
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
